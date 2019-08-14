@@ -1,0 +1,121 @@
+header{
+  border-bottom: 1px solid #ebecec;
+  padding: 10px 0;
+
+  .ajanlat-btn{
+    float: right;
+    padding: 15px 0 0 15px;
+    a{
+      background: $color-red;
+      color: white;
+      padding: 15px 25px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: block;
+
+      &:hover{
+        background: darken($color-red, 5%);
+      }
+    }
+  }
+}
+
+.fusion-main-menu > ul > li:hover > a{
+  background: #ebecec;
+}
+
+.fusion-main-menu > ul > li > a{
+  text-transform: uppercase;
+  padding: 0 1rem;
+}
+
+.fusion-main-menu .fusion-dropdown-menu .sub-menu li a:hover{
+  color: white;
+}
+
+.fusion-main-menu .sub-menu ul > li > a {
+  background: $color-green-dark;
+  color: white !important;
+  &:hover{
+    background: darken($color-green-dark, 10%);
+  }
+}
+
+footer{
+  .textwidget p{
+    margin: 0;
+    padding: 0;
+  }
+  ul.menu{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    li{
+      padding: 0 !important;
+      border: none !important;
+      a {
+        padding: 0 15px;
+        font-size: 1rem;
+        color: white;
+        text-transform: uppercase;
+        line-height: 60px;
+
+        &:hover:before{
+          display: none !important;
+        }
+      }
+    }
+  }
+  .ajanlat-btn{
+    padding: 0 0 0 15px;
+    position: relative;
+    z-index: 10;
+    a{
+      background: $color-grey;
+      color: white;
+      padding: 15px 25px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: block;
+
+      &:hover{
+        background: darken($color-grey, 5%);
+      }
+    }
+  }
+}
+footer.fusion-footer-widget-area{
+  position: relative;
+  overflow: initial;
+  .footer-wrap{
+    width: $page-width;
+    max-width: $page-width;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    & > .fusion-row{
+      flex: 1;
+    }
+  }
+
+  &:before{
+    content: "";
+    position: absolute;
+    background: $color-green;
+    width: 200%;
+    height: 100%;
+    top: -100%;
+    left: -25%;
+    -webkit-transform: rotate(2deg);
+    transform: rotate(2deg);
+    -webkit-transform-origin: 3% 0;
+    transform-origin: 3% 0;
+  }
+}

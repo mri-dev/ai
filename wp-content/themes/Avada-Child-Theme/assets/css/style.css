@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text:400,700");
+/* line 1, sass/_base.scss */
+header {
+  border-bottom: 1px solid #ebecec;
+  padding: 10px 0;
+}
+/* line 5, sass/_base.scss */
+header .ajanlat-btn {
+  float: right;
+  padding: 15px 0 0 15px;
+}
+/* line 8, sass/_base.scss */
+header .ajanlat-btn a {
+  background: #ff2d00;
+  color: white;
+  padding: 15px 25px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+}
+/* line 17, sass/_base.scss */
+header .ajanlat-btn a:hover {
+  background: #e62900;
+}
+
+/* line 24, sass/_base.scss */
+.fusion-main-menu > ul > li:hover > a {
+  background: #ebecec;
+}
+
+/* line 28, sass/_base.scss */
+.fusion-main-menu > ul > li > a {
+  text-transform: uppercase;
+  padding: 0 1rem;
+}
+
+/* line 33, sass/_base.scss */
+.fusion-main-menu .fusion-dropdown-menu .sub-menu li a:hover {
+  color: white;
+}
+
+/* line 37, sass/_base.scss */
+.fusion-main-menu .sub-menu ul > li > a {
+  background: #479a1d;
+  color: white !important;
+}
+/* line 40, sass/_base.scss */
+.fusion-main-menu .sub-menu ul > li > a:hover {
+  background: #336f15;
+}
+
+/* line 46, sass/_base.scss */
+footer .textwidget p {
+  margin: 0;
+  padding: 0;
+}
+/* line 50, sass/_base.scss */
+footer ul.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+/* line 56, sass/_base.scss */
+footer ul.menu li {
+  padding: 0 !important;
+  border: none !important;
+}
+/* line 59, sass/_base.scss */
+footer ul.menu li a {
+  padding: 0 15px;
+  font-size: 1rem;
+  color: white;
+  text-transform: uppercase;
+  line-height: 60px;
+}
+/* line 66, sass/_base.scss */
+footer ul.menu li a:hover:before {
+  display: none !important;
+}
+/* line 72, sass/_base.scss */
+footer .ajanlat-btn {
+  padding: 0 0 0 15px;
+  position: relative;
+  z-index: 10;
+}
+/* line 76, sass/_base.scss */
+footer .ajanlat-btn a {
+  background: #2b2b2b;
+  color: white;
+  padding: 15px 25px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+}
+/* line 85, sass/_base.scss */
+footer .ajanlat-btn a:hover {
+  background: #1e1e1e;
+}
+
+/* line 91, sass/_base.scss */
+footer.fusion-footer-widget-area {
+  position: relative;
+  overflow: initial;
+}
+/* line 94, sass/_base.scss */
+footer.fusion-footer-widget-area .footer-wrap {
+  width: 1100px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+/* line 103, sass/_base.scss */
+footer.fusion-footer-widget-area .footer-wrap > .fusion-row {
+  flex: 1;
+}
+/* line 108, sass/_base.scss */
+footer.fusion-footer-widget-area:before {
+  content: "";
+  position: absolute;
+  background: #92d050;
+  width: 200%;
+  height: 100%;
+  top: -100%;
+  left: -25%;
+  -webkit-transform: rotate(2deg);
+  transform: rotate(2deg);
+  -webkit-transform-origin: 3% 0;
+  transform-origin: 3% 0;
+}
