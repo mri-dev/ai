@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Crimson+Text:400,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap&subset=latin-ext");
 /* line 1, sass/_base.scss */
 header {
   border-bottom: 1px solid #ebecec;
@@ -81,12 +81,17 @@ footer ul.menu li a:hover:before {
   display: none !important;
 }
 /* line 72, sass/_base.scss */
+footer ul.menu li.current_page_item a {
+  text-decoration: underline;
+  color: white !important;
+}
+/* line 78, sass/_base.scss */
 footer .ajanlat-btn {
   padding: 0 0 0 15px;
   position: relative;
   z-index: 10;
 }
-/* line 76, sass/_base.scss */
+/* line 82, sass/_base.scss */
 footer .ajanlat-btn a {
   background: #2b2b2b;
   color: white;
@@ -96,17 +101,23 @@ footer .ajanlat-btn a {
   font-size: 0.9rem;
   display: block;
 }
-/* line 85, sass/_base.scss */
+/* line 91, sass/_base.scss */
 footer .ajanlat-btn a:hover {
   background: #1e1e1e;
 }
 
-/* line 91, sass/_base.scss */
+/* line 97, sass/_base.scss */
+.fusion-footer {
+  position: relative;
+  z-index: 10;
+}
+
+/* line 101, sass/_base.scss */
 footer.fusion-footer-widget-area {
   position: relative;
   overflow: initial;
 }
-/* line 94, sass/_base.scss */
+/* line 104, sass/_base.scss */
 footer.fusion-footer-widget-area .footer-wrap {
   width: 1100px;
   max-width: 1100px;
@@ -117,21 +128,226 @@ footer.fusion-footer-widget-area .footer-wrap {
   flex-wrap: wrap;
   align-items: center;
 }
-/* line 103, sass/_base.scss */
+/* line 113, sass/_base.scss */
 footer.fusion-footer-widget-area .footer-wrap > .fusion-row {
   flex: 1;
 }
-/* line 108, sass/_base.scss */
+/* line 118, sass/_base.scss */
 footer.fusion-footer-widget-area:before {
   content: "";
   position: absolute;
   background: #92d050;
   width: 200%;
-  height: 100%;
-  top: -100%;
+  height: 70%;
+  top: -70%;
   left: -25%;
   -webkit-transform: rotate(2deg);
   transform: rotate(2deg);
   -webkit-transform-origin: 3% 0;
   transform-origin: 3% 0;
+}
+
+/* line 132, sass/_base.scss */
+body.page-template-page-szoftveradatlap #main {
+  padding: 55px 0 0 0 !important;
+}
+
+/* line 138, sass/_base.scss */
+body.page-template-page-szoftveradatlap .divider {
+  background: #dddddd;
+  height: 0.5px;
+  margin: 10px 0;
+  position: relative;
+  display: block;
+  width: 100%;
+}
+/* line 147, sass/_base.scss */
+body.page-template-page-szoftveradatlap .titles {
+  line-height: 1.4;
+}
+/* line 150, sass/_base.scss */
+body.page-template-page-szoftveradatlap .titles .icologo {
+  float: left;
+  padding: 8px 10px 0 0;
+}
+/* line 153, sass/_base.scss */
+body.page-template-page-szoftveradatlap .titles .icologo img {
+  max-height: 50px;
+  height: 50px;
+}
+/* line 158, sass/_base.scss */
+body.page-template-page-szoftveradatlap .titles h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0;
+  font-size: 1.7rem;
+}
+/* line 164, sass/_base.scss */
+body.page-template-page-szoftveradatlap .titles h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
+}
+/* line 171, sass/_base.scss */
+body.page-template-page-szoftveradatlap .short-desc {
+  font-size: 0.9rem;
+  line-height: 1.3;
+  color: #808080;
+  padding: 0 0 0 60px;
+}
+/* line 178, sass/_base.scss */
+body.page-template-page-szoftveradatlap .video-holder {
+  background-color: #eaeaea;
+  background-image: url("/wp-content/themes/Avada-Child-Theme/images/business-bg-overlay-1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 25px 0 100px 0;
+}
+/* line 187, sass/_base.scss */
+body.page-template-page-szoftveradatlap .video-holder .videos h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  margin: 10px 0 25px 0;
+}
+/* line 196, sass/_base.scss */
+body.page-template-page-szoftveradatlap .szofver-adatlap-holder {
+  position: relative;
+  overflow: initial;
+}
+/* line 200, sass/_base.scss */
+body.page-template-page-szoftveradatlap .szofver-adatlap-holder .adatlap-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 40px 0;
+}
+/* line 206, sass/_base.scss */
+body.page-template-page-szoftveradatlap .szofver-adatlap-holder .adatlap-top .image-list {
+  flex-basis: 320px;
+}
+/* line 210, sass/_base.scss */
+body.page-template-page-szoftveradatlap .szofver-adatlap-holder .adatlap-top > .data {
+  flex: 1;
+  padding: 0 0 0 25px;
+}
+/* line 218, sass/_base.scss */
+body.page-template-page-szoftveradatlap .szofver-adatlap-holder .data-boxes .box h3 {
+  text-transform: uppercase;
+  font-size: 1.15rem;
+  color: black;
+}
+/* line 224, sass/_base.scss */
+body.page-template-page-szoftveradatlap .szofver-adatlap-holder .data-boxes .box .box-content {
+  line-height: 1.3;
+  color: #808080;
+}
+/* line 229, sass/_base.scss */
+body.page-template-page-szoftveradatlap .szofver-adatlap-holder .data-boxes .box + .box {
+  margin: 30px 0 0 0;
+}
+/* line 234, sass/_base.scss */
+body.page-template-page-szoftveradatlap .szofver-adatlap-holder > .fusion-row {
+  position: relative;
+  z-index: 3;
+}
+/* line 238, sass/_base.scss */
+body.page-template-page-szoftveradatlap .szofver-adatlap-holder:after {
+  content: "";
+  position: absolute;
+  background: #ffffff;
+  width: 200%;
+  height: 90px;
+  bottom: -90px;
+  left: -25%;
+  z-index: 2;
+  -webkit-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+  -webkit-transform-origin: 3% 0;
+  transform-origin: 3% 0;
+  pointer-events: none;
+}
+/* line 256, sass/_base.scss */
+body.page-template-page-szoftveradatlap .ajanlatkeres .ajanlat-btn {
+  padding: 10px 0 25px 0;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+/* line 261, sass/_base.scss */
+body.page-template-page-szoftveradatlap .ajanlatkeres .ajanlat-btn a {
+  background: #ff2d00;
+  color: white;
+  padding: 15px 25px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1rem;
+  text-align: center;
+}
+/* line 270, sass/_base.scss */
+body.page-template-page-szoftveradatlap .ajanlatkeres .ajanlat-btn a:hover {
+  background: #1e1e1e;
+}
+
+/* line 278, sass/_base.scss */
+.box-nav ul, .box-nav li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* line 283, sass/_base.scss */
+.box-nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+}
+/* line 289, sass/_base.scss */
+.box-nav ul a {
+  font-size: 0.8rem;
+  font-weight: 300;
+  padding: 0 15px 0 0;
+  color: #6a6a6a;
+}
+/* line 295, sass/_base.scss */
+.box-nav ul a:hover {
+  color: #ff2d00;
+}
+
+/* line 301, sass/_base.scss */
+.rolunk-homepage {
+  position: relative;
+}
+/* line 304, sass/_base.scss */
+.rolunk-homepage .fusion-layout-column {
+  position: relative;
+  z-index: 1;
+}
+/* line 309, sass/_base.scss */
+.rolunk-homepage:before {
+  content: "";
+  position: absolute;
+  background: #ffffff;
+  width: 200%;
+  height: 100px;
+  top: 0;
+  left: -25%;
+  z-index: 20;
+  -webkit-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+  -webkit-transform-origin: 3% 0;
+  transform-origin: 3% 0;
+  pointer-events: none;
+}
+
+/* line 325, sass/_base.scss */
+.backtop {
+  text-align: right;
+}
+/* line 327, sass/_base.scss */
+.backtop a {
+  font-size: 0.7rem;
+  color: #acacac;
 }
