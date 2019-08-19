@@ -1,9 +1,15 @@
 <?php
 /* Template Name: Szoftver adatlap */
 // Do not allow directly accessing this file.
-if ( ! defined( 'ABSPATH' ) ) {
- exit( 'Direct script access denied.' );
-}
+
+  global $post;
+
+  if ( ! defined( 'ABSPATH' ) ) {
+   exit( 'Direct script access denied.' );
+  }
+
+  $metakey = METAKEY_PREFIX . 'programcontents_set';
+  $set = unserialize(get_post_meta($post->ID, $metakey, true));
 ?>
 <?php get_header(); ?>
 <section id="content" class="full-width">
@@ -38,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
           </div>
 
           <div class="divider"></div>
-          
+
           <div class="szoftver-modules">
             Modulok
           </div>
@@ -48,6 +54,16 @@ if ( ! defined( 'ABSPATH' ) ) {
           <div class="box-nav">
             <ul>
               <li><a href="#ismerteto">Szoftver ismeretető</a></li>
+            <?php foreach ((array)$set as $ct) {
+              $ct_slug = sanitize_title($ct);
+              $meta_key = METAKEY_PREFIX . 'program_contents';
+              $savekey = METAKEY_PREFIX.'program_contents_'.$ct_slug;
+              $conte =  (get_post_meta($post->ID, $savekey, true));
+              $cont = (is_serialized($conte)) ? maybe_unserialize($conte) : $conte;
+              $cont['content'] = stripslashes($cont['content']);
+            ?>
+              <li><a href="#<?=$ct_slug?>"><?=$cont['title']?></a></li>
+            <? } ?>
             </ul>
           </div>
           <div class="data-boxes">
@@ -59,13 +75,23 @@ if ( ! defined( 'ABSPATH' ) ) {
               </div>
               <div class="backtop"><a href="#top">lap tetejére</a></div>
             </div>
+            <?php foreach ((array)$set as $ct) {
+              $ct_slug = sanitize_title($ct);
+              $meta_key = METAKEY_PREFIX . 'program_contents';
+              $savekey = METAKEY_PREFIX.'program_contents_'.$ct_slug;
+              $conte =  (get_post_meta($post->ID, $savekey, true));
+              $cont = (is_serialized($conte)) ? maybe_unserialize($conte) : $conte;
+              $cont['content'] = stripslashes($cont['content']);
+            ?>
+            <a name="<?=$ct_slug?>"></a>
             <div class="box">
-              <h3>Szoftver ismeretető</h3>
+              <h3><?=$cont['title']?></h3>
               <div class="box-content">
-                <?php the_content(); ?>
+                <?php echo $cont['content']; ?>
               </div>
               <div class="backtop"><a href="#top">lap tetejére</a></div>
             </div>
+            <? } ?>
           </div>
         </div>
       </div>

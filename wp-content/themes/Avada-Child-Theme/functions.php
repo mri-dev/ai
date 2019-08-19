@@ -253,6 +253,7 @@ add_filter('query_vars', 'app_query_vars');
 function create_custom_posttypes()
 {
   // Videók
+  /*
   $videok = new PostTypeFactory( 'videok' );
 	$videok->set_textdomain( TD );
 	$videok->set_icon('tag');
@@ -263,7 +264,6 @@ function create_custom_posttypes()
 		'not_found' => 'Nincsenek %s a listában.',
 		'add_new_item' => 'Új %s létrehozása',
 	) );
-  /*
   $program_metabox = new CustomMetabox(
     'programok',
     __('Program beállítások', 'buso'),
@@ -274,33 +274,36 @@ function create_custom_posttypes()
     )
   );
   */
-  $videok->create();
-  add_post_type_support( 'videok', 'excerpt' );
 
-  // Támogatók
-  $tamogatok = new PostTypeFactory( 'tamogatok' );
-  $tamogatok->set_textdomain( TD );
-  $tamogatok->set_icon('tag');
-  $tamogatok->set_name( 'Támogató', 'Támogatók' );
-  $tamogatok->set_labels( array(
-    'add_new' => 'Új %s',
-    'not_found_in_trash' => 'Nincsenek %s a lomtárban.',
-    'not_found' => 'Nincsenek %s a listában.',
-    'add_new_item' => 'Új %s létrehozása',
-  ) );
-  /*
-  $program_metabox = new CustomMetabox(
-    'programok',
-    __('Program beállítások', 'buso'),
-    new ProgramMetaboxSave(),
-    'programok',
+  $szoftver_settings_metabox = new CustomMetabox(
+    'page',
+    __('Szoftver beállítások', 'ai'),
+    new SzofverSettingsContentMetaboxSave(),
+    'softwaresettings',
+    array(
+      'class' => 'softwaresettings-postbox'
+    )
+  );
+
+  $szoftver_metabox = new CustomMetabox(
+    'page',
+    __('Tartalom beállítások', 'ai'),
+    new ProgramContentMetaboxSave(),
+    'programcontents',
     array(
       'class' => 'programsettings-postbox'
     )
   );
-  */
-  $tamogatok->create();
-  add_post_type_support( 'tamogatok', 'excerpt' );
+
+  $szoftver_modul_metabox = new CustomMetabox(
+    'page',
+    __('Szoftver modulok', 'ai'),
+    new SzofverModulContentMetaboxSave(),
+    'softwaremodules',
+    array(
+      'class' => 'softwaremodules-postbox'
+    )
+  );
 
 }
 
@@ -381,7 +384,99 @@ add_action( 'admin_enqueue_scripts', 'admin_external_scripts' );
 add_action('admin_head', 'my_custom_fonts', 999);
 function my_custom_fonts() {
   echo '<style>
-
+    .wp-picker-holder{
+      position: absolute !important;
+      z-index: 100 !important;
+      top: 32px !important;
+    }
+    .wp-picker-container > a{
+      height: 32px !important;
+      width: 32px !important;
+      border: 1px solid #f1f1f1 !important;
+      display: block !important;
+    }
+    .avadaredux-container #avadaredux-form-wrapper .avadaredux-main .wp-picker-container{
+      height: 25px !important;
+      position: relative !important;
+    }
+    .wp-color-result{
+      float:left !important;
+    }
+    .avadaredux-container #avadaredux-form-wrapper .avadaredux-main .avadaredux-container-color .iris-picker .iris-picker-inner > .iris-strip.iris-alpha-slider, .avadaredux-container #avadaredux-form-wrapper .avadaredux-main .avadaredux-container-color_alpha .iris-picker .iris-picker-inner > .iris-strip.iris-alpha-slider, .avadaredux-container #avadaredux-form-wrapper .avadaredux-main .avadaredux-typography-container .wp-picker-container .iris-picker .iris-picker-inner > .iris-strip.iris-alpha-slider{
+      margin-left: 15px !important;
+    }
+    .avadaredux-container #avadaredux-form-wrapper .avadaredux-main .avadaredux-container-color input[type="text"], .avadaredux-container #avadaredux-form-wrapper .avadaredux-main .avadaredux-container-color_alpha input[type="text"], .avadaredux-container #avadaredux-form-wrapper .avadaredux-main .avadaredux-typography-container .wp-picker-container input[type="text"]{
+      display: block !important;
+      float: left !important;
+    }
+    table.'.TD.'{
+      width: 100%;
+    }
+    table.'.TD.' td{
+      padding: 10px;
+      vertical-align: top;
+    }
+    table.'.TD.' input[type=text],
+    table.'.TD.' input[type=time],
+    table.'.TD.' input[type=number],
+    table.'.TD.' select{
+      width: 100%;
+      padding: 8px;
+      height: auto;
+    }
+    .programcontents > .wrapper{
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    .programcontents > .wrapper > .ct-groups{
+      flex-basis: 30%;
+    }
+    .programcontents > .wrapper > .ct-groups .inputs .newinputs .new{
+      margin: 5px 0;
+    }
+    .programcontents > .wrapper > .ct-groups .inputs .input:not(.new){
+      background: #e8e8e8;
+      padding: 5px 5px 5px 30px;
+      margin: 2px 0;
+      position: relative;
+    }
+    .programcontents > .wrapper > .ct-groups .inputs .input:not(.new) i{
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      color: #c3c2c2;
+      font-size: 13px;
+      -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+    }
+    .programcontents > .wrapper > .ct-groups .new-adder{
+      text-align: right;
+      margin: 5px 0;
+      display: block;
+      text-decoration: none;
+    }
+    .programcontents > .wrapper > .ct-sets{
+      flex: 1;
+      padding: 0 0 0 25px;
+    }
+    .programcontents > .wrapper > .ct-sets .content-sets .set{
+      margin: 0 0 15px 0;
+    }
+    .programcontents > .wrapper > .ct-sets .content-sets .set input[type=text] {
+        width: 100%;
+        margin: 5px 0;
+    }
+    .programcontents > .wrapper > .ct-sets .content-sets .set label {
+      display: block;
+      margin: 0 0 10px 0;
+      font-size: 1.2em;
+    }
+    .programcontents > .wrapper > .ct-groups input[type=text]{
+      width: 100%;
+    }
   </style>';
 }
 
