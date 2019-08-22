@@ -1,9 +1,15 @@
 <?php
 /* Template Name: Szoftver adatlap */
 // Do not allow directly accessing this file.
-if ( ! defined( 'ABSPATH' ) ) {
- exit( 'Direct script access denied.' );
-}
+
+  global $post;
+
+  if ( ! defined( 'ABSPATH' ) ) {
+   exit( 'Direct script access denied.' );
+  }
+
+  $metakey = METAKEY_PREFIX . 'programcontents_set';
+  $set = unserialize(get_post_meta($post->ID, $metakey, true));
 ?>
 <?php get_header(); ?>
 <section id="content" class="full-width">
@@ -34,20 +40,47 @@ if ( ! defined( 'ABSPATH' ) ) {
               <div class="short-desc">
                 <?php echo the_excerpt(); ?>
               </div>
+              <?php
+               $metakey = METAKEY_PREFIX . 'moduls_set';
+               $moduls = unserialize(get_post_meta($post->ID, $metakey, true));
+              ?>
+              <?php if (count($moduls) > 0): ?>
+              <div class="moduls">
+                <?php foreach ((array)$moduls as $modul):
+                  $ct_slug = sanitize_title($modul);
+                  $ct_slug_safe = str_replace(array('-'),array('_'),$ct_slug);
+                  $modul_items = unserialize(get_post_meta($post->ID, METAKEY_PREFIX.'moduls_'.$ct_slug_safe, true));
+                ?>
+                <div class="modul">
+                  <div class="title"><?=stripslashes($modul)?></div>
+                  <div class="wrapper">
+                    <?php $mi = -1; foreach ((array)$modul_items['title'] as $m): $mi++; ?>
+                    <div class="modul-elem">
+                      <div class="t"><i class="fa fa-plus-square"></i> <?=stripslashes($modul_items['title'][$mi])?></div>
+                      <div class="sdesc"><?=stripslashes($modul_items['shortdesc'][$mi])?> <a href="#<?=$ct_slug_safe?>_<?=str_replace(array('-'),array('_'),stripslashes(sanitize_title($modul_items['title'][$mi])));?>" title="Részletek olvasása"><i class="fa fa-info-circle"></i></a></div>
+                    </div>
+                    <?php endforeach; ?>
+                  </div>
+                </div>
+                <?php endforeach; ?>
+              </div>
+              <?php endif; ?>
             </div>
           </div>
-
-          <div class="divider"></div>
-          
-          <div class="szoftver-modules">
-            Modulok
-          </div>
-
-          <div class="divider"></div>
 
           <div class="box-nav">
             <ul>
               <li><a href="#ismerteto">Szoftver ismeretető</a></li>
+            <?php foreach ((array)$set as $ct) {
+              $ct_slug = sanitize_title($ct);
+              $meta_key = METAKEY_PREFIX . 'program_contents';
+              $savekey = METAKEY_PREFIX.'program_contents_'.$ct_slug;
+              $conte =  (get_post_meta($post->ID, $savekey, true));
+              $cont = (is_serialized($conte)) ? maybe_unserialize($conte) : $conte;
+              $cont['content'] = stripslashes($cont['content']);
+            ?>
+              <li><a href="#<?=$ct_slug?>"><?=$cont['title']?></a></li>
+            <? } ?>
             </ul>
           </div>
           <div class="data-boxes">
@@ -59,14 +92,50 @@ if ( ! defined( 'ABSPATH' ) ) {
               </div>
               <div class="backtop"><a href="#top">lap tetejére</a></div>
             </div>
+            <?php foreach ((array)$set as $ct) {
+              $ct_slug = sanitize_title($ct);
+              $meta_key = METAKEY_PREFIX . 'program_contents';
+              $savekey = METAKEY_PREFIX.'program_contents_'.$ct_slug;
+              $conte =  (get_post_meta($post->ID, $savekey, true));
+              $cont = (is_serialized($conte)) ? maybe_unserialize($conte) : $conte;
+              $cont['content'] = stripslashes($cont['content']);
+            ?>
+            <a name="<?=$ct_slug?>"></a>
             <div class="box">
-              <h3>Szoftver ismeretető</h3>
+              <h3><?=$cont['title']?></h3>
               <div class="box-content">
-                <?php the_content(); ?>
+                <?php echo $cont['content']; ?>
               </div>
               <div class="backtop"><a href="#top">lap tetejére</a></div>
             </div>
+            <? } ?>
           </div>
+          <?php if (count($moduls) > 0): ?>
+          <div class="divider"></div>
+          <div class="szoftver-modules data-boxes">
+            <h2>Modulok</h2>
+            <?php foreach ((array)$moduls as $modul):
+              $ct_slug = sanitize_title($modul);
+              $ct_slug_safe = str_replace(array('-'),array('_'),$ct_slug);
+              $modul_items = unserialize(get_post_meta($post->ID, METAKEY_PREFIX.'moduls_'.$ct_slug_safe, true));
+            ?>
+            <div class="box">
+              <h3><?=stripslashes($modul)?></h3>
+              <div class="box-content">
+                <?php $mi = -1; foreach ((array)$modul_items['title'] as $m): $mi++; ?>
+                <div class="modul-elem">
+                  <a name="<?=$ct_slug_safe?>_<?=str_replace(array('-'),array('_'),stripslashes(sanitize_title($modul_items['title'][$mi])));?>"></a>
+                  <h4><?=stripslashes($modul_items['title'][$mi])?></h4>
+                  <div class="sdesc"><?=stripslashes($modul_items['shortdesc'][$mi])?></div>
+                  <div class="desc"><?=stripslashes($modul_items['desc'][$mi])?></div>
+                  <div class="backtop"><a href="#top">lap tetejére</a></div>
+                </div>
+                <?php endforeach; ?>
+              </div>
+            </div>
+            <?php endforeach; ?>
+          </div>
+          <?php endif; ?>
         </div>
       </div>
 
@@ -98,6 +167,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 			width: '100%',
       maxWidth: '100%'
 		});
+    $('.moduls > .modul .modul-elem > .t').click(function(ev){
+      ev.preventDefault();
+      ev.stopPropagation();
+      $('.moduls > .modul .modul-elem').removeClass('opened');
+      $('.moduls > .modul .modul-elem .t i').removeClass('fa-minus-square').addClass('fa-plus-square');
+      var opened = $(this).parent().hasClass('opened');
+      if ( !opened ) {
+        $(this).parent().addClass('opened');
+        $(this).find('i').removeClass('fa-plus-square').addClass('fa-minus-square');
+      } else {
+        $(this).parent().removeClass('opened');
+        $(this).find('i').removeClass('fa-minus-square').addClass('fa-plus-square');
+      }
+    });
 	})(jQuery)
 </script>
 <?php wp_reset_postdata(); ?>

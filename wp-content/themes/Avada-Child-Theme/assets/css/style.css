@@ -152,7 +152,96 @@ body.page-template-page-szoftveradatlap #main {
   padding: 55px 0 0 0 !important;
 }
 
-/* line 138, sass/_base.scss */
+/* line 139, sass/_base.scss */
+body.page-template-page-szoftveradatlap .szoftver-modules > h2 {
+  text-align: center;
+  color: #92d050;
+  margin: 20px 0 25px 0;
+  font-size: 2vw;
+}
+/* line 147, sass/_base.scss */
+body.page-template-page-szoftveradatlap .szoftver-modules .modul-elem h4 {
+  color: #92d050;
+  font-size: 1.1rem;
+}
+/* line 152, sass/_base.scss */
+body.page-template-page-szoftveradatlap .szoftver-modules .modul-elem .sdesc {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+}
+/* line 160, sass/_base.scss */
+body.page-template-page-szoftveradatlap .moduls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 10px 10px 15px -10px #a19999;
+  border-radius: 3px;
+}
+/* line 168, sass/_base.scss */
+body.page-template-page-szoftveradatlap .moduls > .modul {
+  flex-basis: calc(100% / 2);
+  font-size: 0.8rem;
+}
+/* line 172, sass/_base.scss */
+body.page-template-page-szoftveradatlap .moduls > .modul > .title {
+  background: #e6e6e6;
+  color: black;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 5px;
+  font-size: 0.9rem;
+  text-transform: none;
+  font-weight: bold;
+  color: #4d4b4b;
+}
+/* line 183, sass/_base.scss */
+body.page-template-page-szoftveradatlap .moduls > .modul > .wrapper {
+  padding: 8px;
+}
+/* line 189, sass/_base.scss */
+body.page-template-page-szoftveradatlap .moduls > .modul > .wrapper .modul-elem .t {
+  font-weight: bold;
+  color: #525252;
+  line-height: 1;
+  margin: 0 0 5px 0;
+  cursor: help;
+}
+/* line 196, sass/_base.scss */
+body.page-template-page-szoftveradatlap .moduls > .modul > .wrapper .modul-elem .t i {
+  font-size: 22px;
+  vertical-align: sub;
+  margin: 0 5px 0 0;
+}
+/* line 202, sass/_base.scss */
+body.page-template-page-szoftveradatlap .moduls > .modul > .wrapper .modul-elem .t i[class*='plus-square'] {
+  color: #93d660;
+}
+/* line 205, sass/_base.scss */
+body.page-template-page-szoftveradatlap .moduls > .modul > .wrapper .modul-elem .t i[class*='minus-square'] {
+  color: #93d660;
+}
+/* line 209, sass/_base.scss */
+body.page-template-page-szoftveradatlap .moduls > .modul > .wrapper .modul-elem .sdesc {
+  color: #7e7e7e;
+  line-height: 1.2;
+  display: none;
+  padding: 0 0 0 28px;
+}
+/* line 216, sass/_base.scss */
+body.page-template-page-szoftveradatlap .moduls > .modul > .wrapper .modul-elem.opened > .sdesc {
+  display: block;
+}
+/* line 219, sass/_base.scss */
+body.page-template-page-szoftveradatlap .moduls > .modul > .wrapper .modul-elem + .modul-elem {
+  margin: 8px 0 0 0;
+}
+/* line 225, sass/_base.scss */
+body.page-template-page-szoftveradatlap .moduls > .modul:nth-child(even) > .title {
+  background: #f1f1f1;
+}
+/* line 231, sass/_base.scss */
 body.page-template-page-szoftveradatlap .divider {
   background: #dddddd;
   height: 0.5px;
@@ -161,41 +250,41 @@ body.page-template-page-szoftveradatlap .divider {
   display: block;
   width: 100%;
 }
-/* line 147, sass/_base.scss */
+/* line 240, sass/_base.scss */
 body.page-template-page-szoftveradatlap .titles {
   line-height: 1.4;
 }
-/* line 150, sass/_base.scss */
+/* line 243, sass/_base.scss */
 body.page-template-page-szoftveradatlap .titles .icologo {
   float: left;
   padding: 8px 10px 0 0;
 }
-/* line 153, sass/_base.scss */
+/* line 246, sass/_base.scss */
 body.page-template-page-szoftveradatlap .titles .icologo img {
   max-height: 50px;
   height: 50px;
 }
-/* line 158, sass/_base.scss */
+/* line 251, sass/_base.scss */
 body.page-template-page-szoftveradatlap .titles h1 {
   text-transform: uppercase;
   font-weight: bold;
   margin: 0;
   font-size: 1.7rem;
 }
-/* line 164, sass/_base.scss */
+/* line 257, sass/_base.scss */
 body.page-template-page-szoftveradatlap .titles h2 {
   font-size: 1rem;
   font-weight: 400;
   margin: 0;
 }
-/* line 171, sass/_base.scss */
+/* line 264, sass/_base.scss */
 body.page-template-page-szoftveradatlap .short-desc {
   font-size: 0.9rem;
   line-height: 1.3;
   color: #808080;
   padding: 0 0 0 60px;
 }
-/* line 178, sass/_base.scss */
+/* line 271, sass/_base.scss */
 body.page-template-page-szoftveradatlap .video-holder {
   background-color: #eaeaea;
   background-image: url("/wp-content/themes/Avada-Child-Theme/images/business-bg-overlay-1.jpg");
@@ -204,19 +293,19 @@ body.page-template-page-szoftveradatlap .video-holder {
   background-position: center;
   padding: 25px 0 100px 0;
 }
-/* line 187, sass/_base.scss */
+/* line 280, sass/_base.scss */
 body.page-template-page-szoftveradatlap .video-holder .videos h2 {
   text-align: center;
   text-transform: uppercase;
   font-size: 1.8rem;
   margin: 10px 0 25px 0;
 }
-/* line 196, sass/_base.scss */
+/* line 289, sass/_base.scss */
 body.page-template-page-szoftveradatlap .szofver-adatlap-holder {
   position: relative;
   overflow: initial;
 }
-/* line 200, sass/_base.scss */
+/* line 293, sass/_base.scss */
 body.page-template-page-szoftveradatlap .szofver-adatlap-holder .adatlap-top {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -224,36 +313,36 @@ body.page-template-page-szoftveradatlap .szofver-adatlap-holder .adatlap-top {
   flex-wrap: wrap;
   margin: 0 0 40px 0;
 }
-/* line 206, sass/_base.scss */
+/* line 299, sass/_base.scss */
 body.page-template-page-szoftveradatlap .szofver-adatlap-holder .adatlap-top .image-list {
   flex-basis: 320px;
 }
-/* line 210, sass/_base.scss */
+/* line 303, sass/_base.scss */
 body.page-template-page-szoftveradatlap .szofver-adatlap-holder .adatlap-top > .data {
   flex: 1;
   padding: 0 0 0 25px;
 }
-/* line 218, sass/_base.scss */
+/* line 311, sass/_base.scss */
 body.page-template-page-szoftveradatlap .szofver-adatlap-holder .data-boxes .box h3 {
   text-transform: uppercase;
   font-size: 1.15rem;
   color: black;
 }
-/* line 224, sass/_base.scss */
+/* line 317, sass/_base.scss */
 body.page-template-page-szoftveradatlap .szofver-adatlap-holder .data-boxes .box .box-content {
   line-height: 1.3;
   color: #808080;
 }
-/* line 229, sass/_base.scss */
+/* line 322, sass/_base.scss */
 body.page-template-page-szoftveradatlap .szofver-adatlap-holder .data-boxes .box + .box {
   margin: 30px 0 0 0;
 }
-/* line 234, sass/_base.scss */
+/* line 327, sass/_base.scss */
 body.page-template-page-szoftveradatlap .szofver-adatlap-holder > .fusion-row {
   position: relative;
   z-index: 3;
 }
-/* line 238, sass/_base.scss */
+/* line 331, sass/_base.scss */
 body.page-template-page-szoftveradatlap .szofver-adatlap-holder:after {
   content: "";
   position: absolute;
@@ -269,14 +358,14 @@ body.page-template-page-szoftveradatlap .szofver-adatlap-holder:after {
   transform-origin: 3% 0;
   pointer-events: none;
 }
-/* line 256, sass/_base.scss */
+/* line 349, sass/_base.scss */
 body.page-template-page-szoftveradatlap .ajanlatkeres .ajanlat-btn {
   padding: 10px 0 25px 0;
   position: relative;
   z-index: 10;
   text-align: center;
 }
-/* line 261, sass/_base.scss */
+/* line 354, sass/_base.scss */
 body.page-template-page-szoftveradatlap .ajanlatkeres .ajanlat-btn a {
   background: #ff2d00;
   color: white;
@@ -286,46 +375,46 @@ body.page-template-page-szoftveradatlap .ajanlatkeres .ajanlat-btn a {
   font-size: 1.1rem;
   text-align: center;
 }
-/* line 270, sass/_base.scss */
+/* line 363, sass/_base.scss */
 body.page-template-page-szoftveradatlap .ajanlatkeres .ajanlat-btn a:hover {
   background: #1e1e1e;
 }
 
-/* line 278, sass/_base.scss */
+/* line 371, sass/_base.scss */
 .box-nav ul, .box-nav li {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-/* line 283, sass/_base.scss */
+/* line 376, sass/_base.scss */
 .box-nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   align-items: center;
 }
-/* line 289, sass/_base.scss */
+/* line 382, sass/_base.scss */
 .box-nav ul a {
   font-size: 0.8rem;
   font-weight: 300;
   padding: 0 15px 0 0;
   color: #6a6a6a;
 }
-/* line 295, sass/_base.scss */
+/* line 388, sass/_base.scss */
 .box-nav ul a:hover {
   color: #ff2d00;
 }
 
-/* line 301, sass/_base.scss */
+/* line 394, sass/_base.scss */
 .rolunk-homepage {
   position: relative;
 }
-/* line 304, sass/_base.scss */
+/* line 397, sass/_base.scss */
 .rolunk-homepage .fusion-layout-column {
   position: relative;
   z-index: 1;
 }
-/* line 309, sass/_base.scss */
+/* line 402, sass/_base.scss */
 .rolunk-homepage:before {
   content: "";
   position: absolute;
@@ -342,11 +431,11 @@ body.page-template-page-szoftveradatlap .ajanlatkeres .ajanlat-btn a:hover {
   pointer-events: none;
 }
 
-/* line 325, sass/_base.scss */
+/* line 418, sass/_base.scss */
 .backtop {
   text-align: right;
 }
-/* line 327, sass/_base.scss */
+/* line 420, sass/_base.scss */
 .backtop a {
   font-size: 0.7rem;
   color: #acacac;

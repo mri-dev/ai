@@ -135,6 +135,99 @@ body.page-template-page-szoftveradatlap #main{
 
 body.page-template-page-szoftveradatlap{
 
+  .szoftver-modules{
+    & > h2 {
+      text-align: center;
+      color: $color-green;
+      margin: 20px 0 25px 0;
+      font-size: 2vw;
+    }
+
+    .modul-elem{
+      h4{
+        color: $color-green;
+        font-size: 1.1rem;
+      }
+
+      .sdesc{
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin: 0 0 8px 0;
+      }
+    }
+  }
+
+  .moduls{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 10px 10px 15px -10px #a19999;
+    border-radius: 3px;
+
+    & > .modul {
+      flex-basis: calc(100% / 2);
+      font-size: 0.8rem;
+
+      & > .title{
+        background: #e6e6e6;
+        color: black;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 5px;
+        font-size: 0.9rem;
+        text-transform: none;
+        font-weight: bold;
+        color: #4d4b4b;
+      }
+      & > .wrapper{
+        padding: 8px;
+        .modul-elem{
+
+        }
+        .modul-elem{
+          .t{
+            font-weight: bold;
+            color: #525252;
+            line-height: 1;
+            margin: 0 0 5px 0;
+            cursor: help;
+
+            i{
+              font-size: 22px;
+              vertical-align: sub;
+              margin: 0 5px 0 0;
+            }
+
+            i[class*='plus-square']{
+              color: #93d660;
+            }
+            i[class*='minus-square']{
+              color: #93d660;
+            }
+          }
+          .sdesc{
+            color: #7e7e7e;
+            line-height: 1.2;
+            display: none;
+            padding: 0 0 0 28px;
+          }
+        }
+        .modul-elem.opened > .sdesc{
+          display: block;
+        }
+        .modul-elem + .modul-elem{
+          margin: 8px 0 0 0;
+        }
+      }
+    }
+    & > .modul:nth-child(even){
+      & > .title{
+        background: #f1f1f1;
+      }
+    }
+  }
+
   .divider{
     background: #dddddd;
     height: 0.5px;
