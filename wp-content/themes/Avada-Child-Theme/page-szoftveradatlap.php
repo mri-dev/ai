@@ -10,6 +10,9 @@
 
   $metakey = METAKEY_PREFIX . 'programcontents_set';
   $set = unserialize(get_post_meta($post->ID, $metakey, true));
+  $subtitle = get_post_meta($post->ID, METAKEY_PREFIX.'szoftver_subtitle', true);
+  $logo_id = get_post_meta($post->ID, METAKEY_PREFIX.'szoftver_logo_id', true);
+  $logo = ($logo_id) ? wp_get_attachment_url($logo_id) : false;
 ?>
 <?php get_header(); ?>
 <section id="content" class="full-width">
@@ -22,7 +25,7 @@
           <div class="adatlap-top">
             <div class="image-list">
               <div class="cover-img">
-                <img src="https://vallalkozzdigitalisan.hu/dl/partners/35/termek_logo1297.png<?php /*echo get_the_post_thumbnail_url(get_the_ID());*/ ?>" alt="<?php echo the_title(); ?>">
+                <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="<?php echo the_title(); ?>">
               </div>
               <div class="images">
 
@@ -30,11 +33,15 @@
             </div>
             <div class="data">
               <div class="titles">
+                <?php if ($logo_id && $logo): ?>
                 <div class="icologo">
-                  <img src="https://vallalkozzdigitalisan.hu/dl/partners/35/termek_logo1297.png<?php /*echo get_post_meta(get_the_ID(), 'ai_szoftver_logo', true);*/ ?>" alt="<?php echo the_title(); ?>">
+                  <img src="<?php echo $logo;?>" alt="<?php echo the_title(); ?>">
                 </div>
+                <?php endif; ?>
                 <h1><?php echo the_title(); ?></h1>
-                <h2>Vállalatirányítási rendszer <?php echo get_post_meta(get_the_ID(), 'ai_szoftver_alcim', true); ?></h2>
+                <?php if ($subtitle): ?>
+                  <h2><?php echo $subtitle; ?></h2>
+                <?php endif; ?>
               </div>
               <div class="divider"></div>
               <div class="short-desc">
@@ -138,7 +145,11 @@
           <?php endif; ?>
         </div>
       </div>
-
+      <?php
+        $videos_raw = get_post_meta($post->ID, METAKEY_PREFIX.'szoftver_videos', true);
+        $videos = explode("\n", $videos_raw);
+        if ($videos_raw != '' && count($videos) > 0) {
+      ?>
       <div class="video-holder">
         <div class="fusion-row">
           <div class="wrapper">
@@ -149,18 +160,29 @@
               <div class="videos">
                 <h2>Videó bemutatók</h2>
                 <div class="video-set">
-                  videos...
-                  <br><br><br><br><br><br><br><br><br><br><br><br>
+                  <?php foreach ((array)$videos as $vid): ?>
+                  <div class="video">
+                    <?php echo Youtube::ember($vid); ?>
+                  </div>
+                  <?php endforeach; ?>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    <?php } else { ?>
+      <br><br><br>
+    <?php } ?>
     </div>
   </div>
 <?php endwhile; ?>
 </section>
+<style media="screen">
+  .video-holder .slick-prev:before, .slick-next:before{
+    color: #90ce63;
+  }
+</style>
 <script type="text/javascript">
 	(function($){
 		$('#main > .fusion-row').css({
@@ -180,6 +202,14 @@
         $(this).parent().removeClass('opened');
         $(this).find('i').removeClass('fa-minus-square').addClass('fa-plus-square');
       }
+    });
+
+    $('.video-set').slick({
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      dots: true,
+      arrows: true
     });
 	})(jQuery)
 </script>

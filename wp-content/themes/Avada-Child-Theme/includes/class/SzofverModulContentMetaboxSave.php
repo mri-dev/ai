@@ -31,6 +31,7 @@
           $title = $datas['title'][$i];
           $sdesc = $datas['shortdesc'][$i];
           $desc = $datas['desc'][$i];
+          $kiemelt = (isset($datas['kiemelt'][$i])) ? 1 : 0;
 
           if ($title == '') {
             continue;
@@ -39,6 +40,7 @@
           $savedata['title'][] = $title;
           $savedata['shortdesc'][] = $sdesc;
           $savedata['desc'][] = $desc;
+          $savedata['kiemelt'][] = $kiemelt;
         }
         $savedata = maybe_serialize($savedata);
         $savedata = addslashes($savedata);

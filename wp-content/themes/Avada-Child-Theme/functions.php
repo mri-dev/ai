@@ -390,17 +390,7 @@ add_action( 'admin_enqueue_scripts', 'admin_external_scripts' );
 add_action('admin_head', 'my_custom_fonts', 999);
 function my_custom_fonts() {
   echo '<style>
-    .wp-picker-holder{
-      position: absolute !important;
-      z-index: 100 !important;
-      top: 32px !important;
-    }
-    .wp-picker-container > a{
-      height: 32px !important;
-      width: 32px !important;
-      border: 1px solid #f1f1f1 !important;
-      display: block !important;
-    }
+    
     .avadaredux-container #avadaredux-form-wrapper .avadaredux-main .wp-picker-container{
       height: 25px !important;
       position: relative !important;
@@ -482,6 +472,35 @@ function my_custom_fonts() {
     }
     .programcontents > .wrapper > .ct-groups input[type=text]{
       width: 100%;
+    }
+    .modulcontents .content-sets .set > label{
+      font-size: 1.2rem;
+      font-weight:bold;
+    }
+    .modulcontents .content-sets .set .input .title input {
+      color: #3ab83a;
+      font-size: 1.1rem;
+      padding: 10px;
+      font-weight: bold;
+    }
+    .modulcontents .content-sets .set .input .title {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items:center;
+    }
+    .modulcontents .content-sets .set .input .title input {
+      flex: 1;
+    }
+    .modulcontents .content-sets .set .sorting{
+      border: 1px solid #e6e6e6;
+      border-left: none;
+      background: #f1f1f1;
+      line-height: 44px;
+      flex-basis: 50px;
+      text-align: center;
+      cursor: move;
     }
   </style>';
 }
