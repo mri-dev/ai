@@ -62,6 +62,7 @@ footer{
         color: white;
         text-transform: uppercase;
         line-height: 60px;
+        white-space: nowrap;
 
         &:hover:before{
           display: none !important;
@@ -298,6 +299,42 @@ body.page-template-page-szoftveradatlap{
       margin: 0 0 40px 0;
       .image-list{
         flex-basis: 320px;
+        .slick-prev, .slick-next{
+          background: #e7e7e7;
+          width: 25px;
+          height: 45px;
+        }
+        .slick-prev{
+          left: 0;
+        }
+        .slick-next{
+          right: 0;
+        }
+        .slick-prev:before, .slick-next:before{
+          color: white;
+          font-family: 'Font Awesome 5 Free';
+          font-weight: 900;
+          font-size: 20px;
+        }
+        .slick-prev:before{
+          content:"\f104";
+        }
+        .slick-next:before{
+          content:"\f105";
+        }
+        .images{
+          table-layout: fixed;
+          width: 100%;
+          display: table;
+          padding: 0 25px;
+          .img {
+            padding: 5px;
+            text-align: center;
+            img {
+              margin: 0 auto;
+            }
+          }
+        }
       }
 
       & > .data{
@@ -420,6 +457,82 @@ body.page-template-page-szoftveradatlap{
   a{
     font-size: 0.7rem;
     color: #acacac;
+  }
+}
+
+.contact-form-holder{
+  .group-holder{
+    .flxtbl{
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      flex-wrap: wrap;
+      margin: -5px;
+
+      .name, .email, .phone {
+        flex-basis: calc(100% / 3);
+      }
+
+      .company, .szoftver {
+        flex-basis: 50%;
+      }
+
+      .uzenet{
+        flex-basis: 100%;
+      }
+
+      .accepts{
+        margin: 5px 0;
+        padding: 0 5px;
+        a{
+          color: $color-green;
+        }
+        & > div {
+          margin: 4px 0;
+        }
+      }
+
+      .form-input-holder{
+        padding: 5px;
+
+        input, textarea, select{
+          padding: 15px;
+          height: auto;
+          color: #292626;
+          font-size: 1.1rem;
+          width: 100%;
+        }
+
+        textarea{
+          width: 100%;
+          max-width: 100%;
+          min-height: 120px;
+        }
+      }
+    }
+  }
+
+  .btns{
+    margin: 10px 0 0 0;
+
+    button {
+      background: $color-red;
+      color: white;
+      padding: 12px 14px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      line-height: 1;
+      outline: none;
+
+      &.in-progress{
+        background: orange;
+      }
+      &.sended{
+        background: #75ba6e;
+      }
+    }
   }
 }
 

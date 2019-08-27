@@ -13,6 +13,18 @@
   $subtitle = get_post_meta($post->ID, METAKEY_PREFIX.'szoftver_subtitle', true);
   $logo_id = get_post_meta($post->ID, METAKEY_PREFIX.'szoftver_logo_id', true);
   $logo = ($logo_id) ? wp_get_attachment_url($logo_id) : false;
+
+  $logo_id = get_post_meta($post->ID, METAKEY_PREFIX.'szoftver_logo_id', true);
+
+  $feat_images = array();
+  for ($i=2; $i<=5 ; $i++) {
+    $feat_image_id = get_post_meta($post->ID,'kd_featured-image-'.$i.'_page_id', true);
+    if ($feat_image_id == 0 || empty($feat_image_id)) continue;
+    $feat_img = wp_get_attachment_url($feat_image_id);
+    if ($feat_img) {
+      $feat_images[$i] = $feat_img;
+    }
+  }
 ?>
 <?php get_header(); ?>
 <section id="content" class="full-width">
@@ -25,11 +37,29 @@
           <div class="adatlap-top">
             <div class="image-list">
               <div class="cover-img">
-                <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="<?php echo the_title(); ?>">
+                <a href="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>"rel="iLightbox"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="<?php echo the_title(); ?>"></a>                
               </div>
+              <?php if ($feat_images): ?>
               <div class="images">
-
+                <?php foreach ((array)$feat_images as $img ): ?>
+                <div class="img"><a href="<?=$img?>" rel="iLightbox"><img src="<?=$img?>" alt="<?php echo the_title(); ?>"></a></div>
+                <?php endforeach; ?>
               </div>
+              <script type="text/javascript">
+                (function($){
+                  $(function(){
+                    $('.adatlap-top .image-list .images').slick({
+                      slidesToShow: 2,
+                      slidesToScroll: 1,
+                      arrows: true,
+                      dots: false,
+                      infinite: true,
+                      adaptiveHeight: true
+                    });
+                  })
+                })(jQuery);
+              </script>
+              <?php endif; ?>
             </div>
             <div class="data">
               <div class="titles">
@@ -155,7 +185,7 @@
           <div class="wrapper">
             <div class="ajanlatkeres">
               <div class="ajanlat-btn">
-                <a href="/ajanlat-keres">Ajánlat kérés <i class="fa fa-arrow-circle-o-right"></i></a>
+                <a href="/ajanlatkeres">Ajánlatkérés <i class="fa fa-arrow-circle-o-right"></i></a>
               </div>
               <div class="videos">
                 <h2>Videó bemutatók</h2>

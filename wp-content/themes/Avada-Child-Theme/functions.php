@@ -11,8 +11,8 @@ define('FB_APP_ID', '1900170110285208');
 define('METAKEY_PREFIX', 'ai_'); // Textdomain
 define('DEFAULT_LANGUAGE', 'hu_HU');
 define('TD', 'buso');
-define('CAPTCHA_SITE_KEY', '6LemSzsUAAAAAMo_zYX4_iZrkJflAmCdXqAnUJFv');
-define('CAPTCHA_SECRET_KEY', '6LemSzsUAAAAAB3gw2paRrXodpkS8LsojL73_siW');
+define('CAPTCHA_SITE_KEY', '6LceE7UUAAAAAMIjeQCZzP8biZQ1kRETBLdmaQ9O');
+define('CAPTCHA_SECRET_KEY', '6LceE7UUAAAAACVjjUMb-tGwrzouUsZuEJt1Ey01');
 
 // Includes
 require_once "includes/include.php";
@@ -76,7 +76,7 @@ function theme_enqueue_styles() {
     //wp_enqueue_style( 'angular-material','//ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.css');
     //wp_enqueue_style( 'angualardatepick', IFROOT . '/assets/vendors/md-date-range-picker/md-date-range-picker.min.css?t=' . ( (DEVMODE === true) ? time() : '' ) );
     wp_enqueue_script( 'google-maps', '//maps.googleapis.com/maps/api/js?sensor=false&language='.get_locale().'&region=hu&libraries=places&key='.GOOGLE_API_KEY);
-    wp_enqueue_script( 'recaptcha', '//www.google.com/recaptcha/api.js');
+    wp_enqueue_script( 'recaptcha', '//www.google.com/recaptcha/api.js?render='.CAPTCHA_SITE_KEY);
     wp_enqueue_script( 'jquery-ui', '//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js', array('jquery'), '1.12.1');
     wp_enqueue_script( 'slick', IFROOT . '/assets/vendors/slick/slick.min.js');
     //wp_enqueue_script( 'jquery-ui-loc-hu', IFROOT . '/assets/js/jquery-ui-loc-hu.js');
@@ -336,8 +336,7 @@ add_filter('query_vars', 'rd_query_vars');
 function ajax_requests()
 {
   $ajax = new AjaxRequests();
-  //$ajax->contact_form();
-  //$ajax->Calendar();
+  $ajax->contact_form();
 }
 add_action( 'init', 'ajax_requests' );
 
@@ -390,7 +389,7 @@ add_action( 'admin_enqueue_scripts', 'admin_external_scripts' );
 add_action('admin_head', 'my_custom_fonts', 999);
 function my_custom_fonts() {
   echo '<style>
-    
+
     .avadaredux-container #avadaredux-form-wrapper .avadaredux-main .wp-picker-container{
       height: 25px !important;
       position: relative !important;

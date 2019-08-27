@@ -61,7 +61,7 @@ $display_footer = get_post_meta( $c_page_id, 'pyre_display_footer', true );
   			</div> <!-- fusion-columns -->
   		</div> <!-- fusion-row -->
       <div class="ajanlat-btn">
-        <a href="/ajanlat-keres">Ajánlat kérés <i class="fa fa-arrow-circle-o-right"></i> </a>
+        <a href="/ajanlatkeres">Ajánlatkérés <i class="fa fa-arrow-circle-o-right"></i> </a>
       </div>
     </div>
 	</footer> <!-- fusion-footer-widget-area -->
