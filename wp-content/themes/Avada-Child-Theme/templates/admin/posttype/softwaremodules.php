@@ -44,24 +44,43 @@
           <?php $ni = -1; foreach ( (array)$modul_items['title'] as $mi ): $ni++; ?>
           <div class="input">
             <div class="title">
-              <input type="text" name="<?=METAKEY_PREFIX?>moduls['<?=$ct_slug_safe?>'][title][]?>" value="<?=stripslashes($modul_items['title'][$ni])?>" placeholder="Modul elem elnevezése - Üresen hagyva törlődik az elem">
+              <input type="text" name="<?=METAKEY_PREFIX?>moduls[<?=$ct_slug_safe?>][title][]" value="<?=stripslashes($modul_items['title'][$ni])?>" placeholder="Modul elem elnevezése - Üresen hagyva törlődik az elem">
               <div class="sorting" title="Ragadja meg az átrendezéshez"><i class="fa fa-bars"></i></div>
             </div>
             <div class="shortdesc">
-              <input type="text" name="<?=METAKEY_PREFIX?>moduls['<?=$ct_slug_safe?>'][shortdesc][]?>" value="<?=stripslashes($modul_items['shortdesc'][$ni])?>" placeholder="Rövid ismertető szöveg">
+              <input type="text" name="<?=METAKEY_PREFIX?>moduls[<?=$ct_slug_safe?>][shortdesc][]" value="<?=stripslashes($modul_items['shortdesc'][$ni])?>" placeholder="Rövid ismertető szöveg">
             </div>
             <div class="content">
               <?php wp_editor( wpautop(stripslashes($modul_items['desc'][$ni])), METAKEY_PREFIX.'_moduls_'.$ct_slug_safe.'_'.$ni.'_desc', array(
-                'textarea_name' => METAKEY_PREFIX.'moduls[\''.$ct_slug_safe.'\'][desc][]',
+                'textarea_name' => METAKEY_PREFIX.'moduls['.$ct_slug_safe.'][desc][]',
                 'wpautop' => false
               )); ?>
             </div>
             <br>
             <div class="kiemelt">
-              <label for="<?=METAKEY_PREFIX?>moduls_cb_<?=$ct_slug_safe?>_kiemelt"><input type="checkbox" id="<?=METAKEY_PREFIX?>moduls_cb_<?=$ct_slug_safe?>_kiemelt" name="<?=METAKEY_PREFIX?>moduls['<?=$ct_slug_safe?>'][kiemelt][]" value="1" <?=($modul_items['kiemelt'][$ni] == '1')?'checked="checked"':''?>> Kiemelt elem</label>
+              <label for="<?=METAKEY_PREFIX?>moduls_cb_<?=$ct_slug_safe?>_kiemelt"><input type="checkbox" id="<?=METAKEY_PREFIX?>moduls_cb_<?=$ct_slug_safe?>_kiemelt" name="<?=METAKEY_PREFIX?>moduls[<?=$ct_slug_safe?>][kiemelt][]" value="1" <?=($modul_items['kiemelt'][$ni] == '1')?'checked="checked"':''?>> Kiemelt elem</label>
             </div>
           </div>
           <?php endforeach; ?>
+		  <div class="input">
+            <div class="title">
+              <input type="text" name="<?=METAKEY_PREFIX?>moduls[<?=$ct_slug_safe?>][title][]" value="" placeholder="Modul elem elnevezése">
+              <div class="sorting" title="Ragadja meg az átrendezéshez"><i class="fa fa-bars"></i></div>
+            </div>
+            <div class="shortdesc">
+              <input type="text" name="<?=METAKEY_PREFIX?>moduls[<?=$ct_slug_safe?>][shortdesc][]" value="" placeholder="Rövid ismertető szöveg">
+            </div>
+            <div class="content">
+              <?php wp_editor( '', METAKEY_PREFIX.'_moduls_'.$ct_slug_safe.'_'.($ni+1).'_desc', array(
+                'textarea_name' => METAKEY_PREFIX.'moduls['.$ct_slug_safe.'][desc][]',
+                'wpautop' => false
+              )); ?>
+            </div>
+            <br>
+            <div class="kiemelt">
+              <label for="<?=METAKEY_PREFIX?>moduls_cb_<?=$ct_slug_safe?>_kiemelt"><input type="checkbox" id="<?=METAKEY_PREFIX?>moduls_cb_<?=$ct_slug_safe?>_kiemelt" name="<?=METAKEY_PREFIX?>moduls[<?=$ct_slug_safe?>][kiemelt][]" value="1" <?=($modul_items['kiemelt'][$ni] == '1')?'checked="checked"':''?>> Kiemelt elem</label>
+            </div>
+          </div>
           </div>
           <a class="new-adder" href="javascript:void(0);" onclick="addNewModulElem('<?=$ct_slug_safe?>')">+ új modul elem</a>
         </div>
@@ -76,11 +95,11 @@
     var wpeditorcount = 0;
     function addNewModulElem( modulslug ) {
       jQuery("#modulelem-"+modulslug).append('<div class="input new">'+
-      '<div class="title"><input type="text" name="<?=METAKEY_PREFIX?>moduls[\''+modulslug+'\'][title][]?>" value="" placeholder="Modul elem elnevezése"><div class="sorting" title="Ragadja meg az átrendezéshez"><i class="fa fa-bars"></i></div></div>'+
-      '<div class="shortdesc"><input type="text" name="<?=METAKEY_PREFIX?>moduls[\''+modulslug+'\'][shortdesc][]?>" value="" placeholder="Rövid ismertető szöveg"></div>'+
-      '<div class="content"><textarea id="<?=METAKEY_PREFIX?>moduls_content_'+modulslug+'_'+wpeditorcount+'" name="<?=METAKEY_PREFIX?>moduls[\''+modulslug+'\'][desc][]?>"></textarea></div>'+
+      '<div class="title"><input type="text" name="<?=METAKEY_PREFIX?>moduls['+modulslug+'][title][]?>" value="" placeholder="Modul elem elnevezése"><div class="sorting" title="Ragadja meg az átrendezéshez"><i class="fa fa-bars"></i></div></div>'+
+      '<div class="shortdesc"><input type="text" name="<?=METAKEY_PREFIX?>moduls['+modulslug+'][shortdesc][]?>" value="" placeholder="Rövid ismertető szöveg"></div>'+
+      '<div class="content"><textarea id="<?=METAKEY_PREFIX?>moduls_content_'+modulslug+'_'+wpeditorcount+'" name="<?=METAKEY_PREFIX?>moduls['+modulslug+'][desc][]?>"></textarea></div>'+
       '<br>'+
-      '<div class="kiemelt"><label for="<?=METAKEY_PREFIX?>moduls_cb_\''+modulslug+'\'_kiemelt"><input type="checkbox" id="<?=METAKEY_PREFIX?>moduls_cb_\''+modulslug+'\'_kiemelt" name="<?=METAKEY_PREFIX?>moduls[\''+modulslug+'\'][kiemelt][]" value="1"> Kiemelt elem</label></div>'+
+      '<div class="kiemelt"><label for="<?=METAKEY_PREFIX?>moduls_cb_'+modulslug+'_kiemelt"><input type="checkbox" id="<?=METAKEY_PREFIX?>moduls_cb_'+modulslug+'_kiemelt" name="<?=METAKEY_PREFIX?>moduls['+modulslug+'][kiemelt][]" value="1"> Kiemelt elem</label></div>'+
       '</div>');
       var editorId = '<?=METAKEY_PREFIX?>moduls_content_'+modulslug+'_'+wpeditorcount;
       wp.editor.initialize(editorId, {
