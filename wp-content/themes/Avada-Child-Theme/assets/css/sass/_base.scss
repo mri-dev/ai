@@ -1,3 +1,6 @@
+#fusion-gmap-container, #main, #sliders-container, #wrapper, .fusion-separator .icon-wrapper, body, html{
+  background-color: transparent;
+}
 header{
   border-bottom: 1px solid #ebecec;
   padding: 10px 0;
@@ -134,6 +137,14 @@ body.page-template-page-szoftveradatlap #main{
   padding: 55px 0 0 0 !important;
 }
 
+body.page-template{
+  background-image: url('../../images/ai-temp-bg.svg');
+  background-attachment: fixed;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: right bottom -5px;
+}
+
 body.page-template-page-szoftveradatlap{
 
   .szoftver-modules{
@@ -165,6 +176,7 @@ body.page-template-page-szoftveradatlap{
     flex-wrap: wrap;
     box-shadow: 10px 10px 15px -10px #a19999;
     border-radius: 3px;
+    background: white;
 
     & > .modul {
       flex-basis: calc(100% / 2);
@@ -371,7 +383,7 @@ body.page-template-page-szoftveradatlap{
       background: #ffffff;
       width: 200%;
       height: 90px;
-      bottom: -90px;
+      bottom: -98px;
       left: -25%;
       z-index: 2;
       -webkit-transform: rotate(-2deg);
@@ -401,6 +413,37 @@ body.page-template-page-szoftveradatlap{
           background: darken($color-grey, 5%);
         }
       }
+    }
+  }
+}
+.grecaptcha-badge{
+  z-index: 100;
+}
+.contact-kapcsolat{
+  input[type=text],
+  input[type=email],
+  select{
+    width: 100% !important;
+    margin: 0 !important;
+    max-width: initial !important;
+  }
+
+  .sending-btn {
+    background: $color-red !important;
+    color: white !important;
+    padding: 12px 14px !important;
+    border-radius: 4px !important;
+    text-transform: uppercase !important;
+    border: none !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+    outline: none !important;
+
+    &.in-progress{
+      background: orange !important;
+    }
+    &.sended{
+      background: #75ba6e !important;
     }
   }
 }

@@ -37,7 +37,7 @@
           <div class="adatlap-top">
             <div class="image-list">
               <div class="cover-img">
-                <a href="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>"rel="iLightbox"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="<?php echo the_title(); ?>"></a>                
+                <a href="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>"rel="iLightbox"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="<?php echo the_title(); ?>"></a>
               </div>
               <?php if ($feat_images): ?>
               <div class="images">
@@ -127,7 +127,6 @@
               <div class="box-content">
                 <?php the_content(); ?>
               </div>
-              <div class="backtop"><a href="#top">lap tetejére</a></div>
             </div>
             <?php foreach ((array)$set as $ct) {
               $ct_slug = sanitize_title($ct);
@@ -143,7 +142,6 @@
               <div class="box-content">
                 <?php echo $cont['content']; ?>
               </div>
-              <div class="backtop"><a href="#top">lap tetejére</a></div>
             </div>
             <? } ?>
           </div>
@@ -165,7 +163,6 @@
                   <h4><?=stripslashes($modul_items['title'][$mi])?></h4>
                   <div class="sdesc"><?=stripslashes($modul_items['shortdesc'][$mi])?></div>
                   <div class="desc"><?=stripslashes($modul_items['desc'][$mi])?></div>
-                  <div class="backtop"><a href="#top">lap tetejére</a></div>
                 </div>
                 <?php endforeach; ?>
               </div>
